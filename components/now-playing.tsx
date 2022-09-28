@@ -10,7 +10,10 @@ const NowPlaying = () => {
   }
   //@ts-ignore
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
-  const { data } = useSWR('/api/playing', fetcher, { fallbackData })
+  const { data } = useSWR('/api/playing', fetcher, {
+    fallbackData,
+    refreshInterval: 5000
+  })
   return (
     <div className="flex flex-col items-center text-center mt-8 ml-8 w-10/12">
       <img src={data.image} className="rounded-lg" />
