@@ -13,7 +13,7 @@ const Time = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="bg-amber-600 rounded-lg p-4">
+      <div className="bg-amber-400 text-black rounded-lg p-4">
         <h1 className="text-6xl font-bold">{time}</h1>
       </div>
     </div>
