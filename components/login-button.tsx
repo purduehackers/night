@@ -30,10 +30,10 @@ export default function Component() {
   return (
     <>
       <button
-        className="bg-amber-400 rounded p-2 font-bold shadow"
+        className="bg-green-500 rounded-lg p-6 font-bold text-4xl shadow-lg"
         onClick={() => signIn()}
       >
-        Sign in
+        Sign in with Spotify
       </button>
     </>
   )
