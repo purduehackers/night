@@ -9,8 +9,6 @@ import Time from '../components/time'
 const Home: NextPage = () => {
   const { data: session } = useSession()
   const router = useRouter()
-  console.log(router.pathname)
-  console.log(router.query)
 
   if (router.query?.signOut) {
     signOut()
@@ -19,7 +17,7 @@ const Home: NextPage = () => {
 
   if (!session) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center py-2">
+      <div className="flex h-screen flex-col items-center justify-center py-2">
         <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
           <button
             className="bg-green-500 rounded-lg p-6 font-bold text-4xl shadow-lg"
