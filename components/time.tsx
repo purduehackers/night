@@ -12,9 +12,9 @@ const Time = () => {
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center w-full tabular-nums">
       <div className="bg-amber-400 text-black rounded-lg p-4">
-        <h1 className="text-6xl font-bold">{time}</h1>
+        <h1 className="text-5xl font-bold">{time}</h1>
       </div>
     </div>
   )

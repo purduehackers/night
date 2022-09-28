@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         <title>Hack Night</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-3 min-h-screen">
+      <div className="grid grid-cols-3 grid-gap-0 min-h-screen">
         <NowPlaying />
         <Time />
         <Grid3 />

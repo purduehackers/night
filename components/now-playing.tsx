@@ -12,10 +12,10 @@ const NowPlaying = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
   const { data } = useSWR('/api/playing', fetcher, { fallbackData })
   return (
-    <div className="flex flex-1 flex-col items-center text-center mt-8">
-      <img src={data.image} className="max-w-xs rounded-lg" />
-      <p className="font-bold max-w-xs text-4xl mt-4 mb-2">{data.title}</p>
-      <p className="text-xl max-w-xs">{data.artist}</p>
+    <div className="flex flex-col items-center text-center mt-8 ml-8 max-w-[18rem]">
+      <img src={data.image} className="rounded-lg" />
+      <p className="font-bold text-4xl mt-4 mb-2">{data.title}</p>
+      <p className="text-xl">{data.artist}</p>
     </div>
   )
 }
