@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import Head from 'next/head'
+import Grid3 from '../components/grid-3'
 import NowPlaying from '../components/now-playing'
+import Time from '../components/time'
 
 const Home: NextPage = () => {
   const { data: session } = useSession()
@@ -22,13 +24,16 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col bg-gray-900 text-white">
       <Head>
         <title>Hack Night</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <NowPlaying />
+      <div className="grid grid-cols-3 min-h-screen">
+        <NowPlaying />
+        <Time />
+        <Grid3 />
+      </div>
     </div>
   )
 }
