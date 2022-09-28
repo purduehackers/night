@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import tt from 'tinytime'
 import EmojiMarquee from './emoji-marquee'
+import ProjectCard from './project-card'
 
 const Time = () => {
   const [time, setTime] = useState('')
@@ -18,7 +19,7 @@ const Time = () => {
   }, [])
 
   return (
-    <div className="grid grid-rows-3 items-center justify-center w-full tabular-nums">
+    <div className="grid grid-rows-3 items-center justify-center w-full">
       <div className="flex flex-col items-center justify-center">
         <EmojiMarquee />
         <h1 className="text-5xl font-bold">
