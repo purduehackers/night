@@ -1,21 +1,32 @@
 import { useEffect, useState } from 'react'
+import tt from 'tinytime'
 
 const Time = () => {
   const [time, setTime] = useState('')
+  const [dateObj, setDateObj] = useState(new Date())
 
   useEffect(() => {
-    const timer = setInterval(
-      () => setTime(new Date().toLocaleString().split(', ')[1]),
-      1000
-    )
+    const timer = setInterval(() => {
+      const now = new Date()
+      setDateObj(now)
+      //now.setHours(now.getHours() + 9)
+      const formattedTime = tt('{h}:{mm} {a}').render(now)
+      setTime(formattedTime)
+    }, 1000)
     return () => clearInterval(timer)
   }, [])
 
   return (
     <div className="flex flex-col items-center justify-center w-full tabular-nums">
-      <div className="bg-amber-400 text-black rounded-lg p-4">
-        <h1 className="text-5xl font-bold">{time}</h1>
-      </div>
+      <h1
+        className={`${
+          dateObj.getHours() > 22 || dateObj.getHours() === 0
+            ? 'text-[7vw]'
+            : 'text-[8vw]'
+        } font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
+      >
+        {time}
+      </h1>
     </div>
   )
 }
