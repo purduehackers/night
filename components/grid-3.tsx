@@ -3,15 +3,7 @@ import ProjectCard from './project-card'
 
 const Grid3 = () => {
   return (
-    <div className="flex flex-col items-center">
-      <div className="ml-auto mr-4 mt-2">
-        <button
-          className="bg-green-500 rounded-lg p-2 font-bold shadow-lg text-black"
-          onClick={() => signOut()}
-        >
-          Sign out
-        </button>
-      </div>
+    <div className="flex flex-col items-center mt-4">
       <ProjectCard
         username="hewillyeah"
         avatar="https://avatars.githubusercontent.com/u/14811170?v=4"

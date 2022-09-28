@@ -1,12 +1,21 @@
 import type { NextPage } from 'next'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Grid3 from '../components/grid-3'
 import NowPlaying from '../components/now-playing'
 import Time from '../components/time'
 
 const Home: NextPage = () => {
   const { data: session } = useSession()
+  const router = useRouter()
+  console.log(router.pathname)
+  console.log(router.query)
+
+  if (router.query?.signOut) {
+    signOut()
+    router.push('/')
+  }
 
   if (!session) {
     return (
