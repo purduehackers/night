@@ -2,8 +2,8 @@ const basic = Buffer.from(
   `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
 ).toString('base64')
 
-const getAccessToken = async (refreshToken: string) => {
-  const response = await fetch(`https://accounts.spotify.com/api/token`, {
+const getAccessToken = async (refreshToken: string) =>
+  await fetch(`https://accounts.spotify.com/api/token`, {
     method: 'POST',
     headers: {
       Authorization: `Basic ${basic}`,
@@ -13,9 +13,6 @@ const getAccessToken = async (refreshToken: string) => {
       grant_type: 'refresh_token',
       refresh_token: refreshToken
     })
-  })
-
-  return response.json()
-}
+  }).then((r) => r.json())
 
 export default getAccessToken
