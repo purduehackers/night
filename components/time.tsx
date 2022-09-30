@@ -39,7 +39,9 @@ const Time = () => {
       <div className="flex flex-col items-center justify-center">
         <h1
           className={`${
-            dateObj.getHours() > 22 || dateObj.getHours() === 0
+            dateObj.getHours() > 22 ||
+            dateObj.getHours() === 0 ||
+            dateObj.getHours() === 12
               ? 'text-[7vw]'
               : 'text-[8vw]'
           } font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
