@@ -20,7 +20,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/api/auth/[...nextauth].js",
-    "lib/fetchPosts.ts"
+    "lib/fetch-posts.ts"
   ],
   "exclude": ["node_modules"]
 }

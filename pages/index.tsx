@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Posts from '../components/posts'
 import NowPlaying from '../components/now-playing'
 import Time from '../components/time'
-import { fetchPosts } from '../lib/fetchPosts'
+import { fetchPosts } from '../lib/fetch-posts'
 import { Post } from '../types/posts'
 
 const Home = ({ posts }: { posts: Post[] }) => {
