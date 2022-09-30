@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import tt from 'tinytime'
 import EmojiMarquee from './emoji-marquee'
-import ProjectCard from './project-card'
 
 const Time = () => {
   const [time, setTime] = useState('')
@@ -11,7 +10,6 @@ const Time = () => {
     const timer = setInterval(() => {
       const now = new Date()
       setDateObj(now)
-      //now.setHours(now.getHours() + 9)
       const formattedTime = tt('{h}:{mm} {a}').render(now)
       setTime(formattedTime)
     }, 1000)
