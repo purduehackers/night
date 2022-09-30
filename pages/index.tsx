@@ -5,10 +5,8 @@ import { useRouter } from 'next/router'
 import Posts from '../components/posts'
 import NowPlaying from '../components/now-playing'
 import Time from '../components/time'
-import { fetchPosts } from '../lib/fetch-posts'
-import { Post } from '../types/posts'
 
-const Home = ({ posts }: { posts: Post[] }) => {
+const Home = () => {
   const { data: session } = useSession()
   const router = useRouter()
 
@@ -41,19 +39,10 @@ const Home = ({ posts }: { posts: Post[] }) => {
       <div className="grid grid-cols-3 grid-gap-0 min-h-screen">
         <NowPlaying />
         <Time />
-        <Posts posts={posts} />
+        <Posts />
       </div>
     </div>
   )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await fetchPosts()
-
-  return {
-    props: { posts },
-    revalidate: 10
-  }
 }
 
 export default Home
