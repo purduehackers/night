@@ -7,24 +7,6 @@ Airtable.configure({
 })
 const base = Airtable.base('appCdXVAcRjUahF5M')
 
-const defaultReturn = [
-  {
-    createdTime: '',
-    description: '',
-    attachments: [
-      {
-        url: 'https://mbs.zone/geck',
-        id: '',
-        filename: '',
-        size: 0,
-        type: ''
-      }
-    ],
-    username: '',
-    avatar: 'https://mbs.zone/geck'
-  }
-]
-
 export const fetchPosts = async (): Promise<Post[]> =>
   new Promise((resolve, reject) => {
     base('Scraps')
