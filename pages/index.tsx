@@ -1,12 +1,14 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import Grid3 from '../components/grid-3'
+import Posts from '../components/posts'
 import NowPlaying from '../components/now-playing'
 import Time from '../components/time'
+import { fetchPosts } from '../lib/fetchPosts'
+import { Post } from '../types/posts'
 
-const Home: NextPage = () => {
+const Home = ({ posts }: { posts: Post[] }) => {
   const { data: session } = useSession()
   const router = useRouter()
 
@@ -39,10 +41,20 @@ const Home: NextPage = () => {
       <div className="grid grid-cols-3 grid-gap-0 min-h-screen">
         <NowPlaying />
         <Time />
-        <Grid3 />
+        <Posts posts={posts} />
       </div>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await fetchPosts()
+  console.log('posts', posts)
+
+  return {
+    props: { posts },
+    revalidate: 10
+  }
 }
 
 export default Home
