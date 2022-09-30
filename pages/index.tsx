@@ -49,7 +49,6 @@ const Home = ({ posts }: { posts: Post[] }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await fetchPosts()
-  console.log('posts', posts)
 
   return {
     props: { posts },
