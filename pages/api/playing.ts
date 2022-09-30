@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getToken, JWT } from 'next-auth/jwt'
-import getAccessToken from '../../utils/get-access-token'
+import getAccessToken from '../../lib/get-access-token'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
