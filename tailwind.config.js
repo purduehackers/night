@@ -13,7 +13,7 @@ module.exports = {
     fontFamily: {
       main: '"Space Grotesk", system-ui, Roboto, sans-serif',
       sans: '"Inter", sans-serif',
-      mono: '"IBM Plex Mono"'
+      mono: '"Space Mono"'
     },
     extend: {
       colors: {

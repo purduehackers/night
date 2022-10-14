@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react'
 import tt from 'tinytime'
+import { LightningTime } from '@purduehackers/time'
 import EmojiMarquee from './emoji-marquee'
 
 const Time = () => {
   const [time, setTime] = useState('')
+  const [lightningTime, setLightningTime] = useState('')
   const [dateObj, setDateObj] = useState(new Date())
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date()
       setDateObj(now)
+
+      const lt = new LightningTime()
+      setLightningTime(lt.convertToLightning(now).lightningString)
+
       const formattedTime = tt('{h}:{mm} {a}').render(now)
       setTime(formattedTime)
-    }, 1000)
+    }, 100)
     return () => clearInterval(timer)
   }, [])
 
@@ -34,7 +40,7 @@ const Time = () => {
         </div>
         <EmojiMarquee />
       </div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center font-mono">
         <h1
           className={`${
             dateObj.getHours() > 21 ||
@@ -44,8 +50,9 @@ const Time = () => {
               : 'text-[8vw]'
           } font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
         >
-          {time}
+          {lightningTime}
         </h1>
+        <p className="font-bold text-xl">({time})</p>
       </div>
     </div>
   )
