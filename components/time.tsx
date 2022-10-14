@@ -42,17 +42,11 @@ const Time = () => {
       </div>
       <div className="flex flex-col items-center justify-center font-mono">
         <h1
-          className={`${
-            dateObj.getHours() > 21 ||
-            dateObj.getHours() === 0 ||
-            dateObj.getHours() === 12
-              ? 'text-[7vw]'
-              : 'text-[8vw]'
-          } font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
+          className={`text-[8vw] font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
         >
           {lightningTime}
         </h1>
-        <p className="font-bold text-xl">({time})</p>
+        <p className="font-bold text-2xl">({time})</p>
       </div>
     </div>
   )
