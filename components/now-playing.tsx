@@ -1,4 +1,3 @@
-import { signOut } from 'next-auth/react'
 import useSWR from 'swr'
 
 const NowPlaying = () => {
