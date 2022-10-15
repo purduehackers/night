@@ -28,7 +28,7 @@ const NowPlaying = () => {
         <p className="font-bold text-4xl mt-4 mb-2">{songData.title}</p>
         <p className="text-xl text-gray-300">{songData.artist}</p>
       </div>
-      <div className="flex flex-col mt-2 ml-8 w-10/12 items-center">
+      <div className="flex flex-col mt-4 ml-8 w-10/12 items-center">
         <img src={fishData.url} width={225} className="rounded-lg" />
         <h1 className="text-3xl mt-2 font-bold">FISH OF THE DAY</h1>
       </div>
