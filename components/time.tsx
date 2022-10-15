@@ -6,12 +6,10 @@ import EmojiMarquee from './emoji-marquee'
 const Time = () => {
   const [time, setTime] = useState('')
   const [lightningTime, setLightningTime] = useState('')
-  const [dateObj, setDateObj] = useState(new Date())
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date()
-      setDateObj(now)
 
       const lt = new LightningTime()
       setLightningTime(lt.convertToLightning(now).lightningString)

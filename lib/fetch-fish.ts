@@ -1,5 +1,5 @@
 import Airtable, { Attachment } from 'airtable'
-import { Post } from '../types/types'
+import { Fish } from '../types/types'
 
 Airtable.configure({
   endpointUrl: 'https://api.airtable.com',
@@ -7,11 +7,11 @@ Airtable.configure({
 })
 const base = Airtable.base('appCdXVAcRjUahF5M')
 
-export const fetchPosts = async (): Promise<Post[]> =>
+export const fetchFish = async (): Promise<Fish> =>
   new Promise((resolve, reject) => {
-    base('Scraps')
+    base('Fish of the Day')
       .select({
-        maxRecords: 3,
+        maxRecords: 1,
         view: 'Grid view',
         sort: [{ field: 'Created time', direction: 'desc' }]
       })
@@ -21,14 +21,11 @@ export const fetchPosts = async (): Promise<Post[]> =>
           return reject('error')
         }
 
-        const posts: Post[] = records.map((record) => ({
+        const fish: Fish[] = records.map((record) => ({
           id: record.id,
           createdTime: record.get('Created time') as string,
-          description: record.get('Description') as string,
-          attachments: record.get('Attachments') as Attachment[],
-          username: record.get('Username (from User)') as string,
-          avatar: record.get('Avatar (from User)') as Attachment[]
+          fish: record.get('Fish') as Attachment[]
         }))
-        resolve(posts)
+        resolve(fish[0])
       })
   })

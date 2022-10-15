@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import truncate from 'truncate'
-import { Post } from '../types/posts'
+import { Post } from '../types/types'
 import ProjectCard from './project-card'
 
 const Posts = () => {
@@ -18,7 +18,6 @@ const Posts = () => {
     fallbackData,
     refreshInterval: 5000
   })
-  console.log('posts', posts)
 
   return (
     <div className="flex flex-col items-center mt-4">

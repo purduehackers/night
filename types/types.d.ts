@@ -7,3 +7,8 @@ interface Post {
   username: string
   avatar: Attachment[]
 }
+
+interface Fish {
+  createdTime: string
+  fish: Attachment[]
+}
