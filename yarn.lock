@@ -105,10 +105,10 @@
   resolved "https://registry.yarnpkg.com/@panva/hkdf/-/hkdf-1.0.2.tgz#bab0f09d09de9fd83628220d496627681bc440d6"
   integrity sha512-MSAs9t3Go7GUkMhpKC44T58DJ5KGk2vBo+h1cqQeqlMfdGkxaVB78ZWpv9gYi/g2fa4sopag9gJsNvS8XGgWJA==
 
-"@purduehackers/time@^0.3.6":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@purduehackers/time/-/time-0.3.6.tgz#ac1e451081a5b9954eaf36a96dab6ffa6a96224f"
-  integrity sha512-2So/kPlrOa3lL3QJOxdgajz/rWQKCiYyCeg0Fiov7Z6HlNfkaTdmyN5Akvsu4MliWqoJHW2PIqUuYJOahl/RYA==
+"@purduehackers/time@^0.3.12":
+  version "0.3.12"
+  resolved "https://registry.yarnpkg.com/@purduehackers/time/-/time-0.3.12.tgz#30d4fa39abe4de7ab174cbf469ee16693670762d"
+  integrity sha512-oVvI61pivmGKRSNmq7Zz+gbSYXIE3WdeZ16iVfHtx5g1BJHXY5TCw2dTtBiA1iJUEw1zRzLyma4qzGyvZBDWuQ==
   dependencies:
     rgb-hex "3.0.0"
 
