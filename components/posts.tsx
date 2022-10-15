@@ -1,3 +1,5 @@
+import { LightningTime } from '@purduehackers/time'
+import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import truncate from 'truncate'
 import { Post } from '../types/types'
@@ -19,14 +21,27 @@ const Posts = () => {
     refreshInterval: 5000
   })
 
+  const [colors, setColors] = useState<string[]>([])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const lt = new LightningTime()
+      const convertedTime = lt.convertToLightning(new Date()).lightningString
+      setColors(Object.values(lt.getColors(convertedTime)))
+    }, 100)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className="flex flex-col items-center mt-4">
-      {posts.map((post: Post) => (
+      {posts.map((post: Post, i: number) => (
         <ProjectCard
           username={post.username}
+          key={i}
           avatar={post.avatar[0].url}
           description={truncate(post.description, 90)}
           image={post.attachments[0].url}
+          color={colors[i]}
         />
       ))}
     </div>

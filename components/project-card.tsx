@@ -2,12 +2,22 @@ interface PostData {
   username: string
   avatar: string
   description: string
-  image?: string
+  image: string
+  color: string
 }
 
-const ProjectCard = ({ username, avatar, description, image }: PostData) => (
-  <div className="rounded-sm w-5/6 p-4 bg-amber-100 text-black mt-4">
-    <div className="flex flex-row items-center gap-x-1">
+const ProjectCard = ({
+  username,
+  avatar,
+  description,
+  image,
+  color
+}: PostData) => (
+  <div
+    className={`rounded-lg w-5/6 p-4 text-white mt-4`}
+    style={{ border: `8px solid #${color}` }}
+  >
+    <div className="flex flex-row items-center gap-x-2">
       <img className="w-10 rounded-full" src={avatar} />
       <h1 className="font-bold">{username}</h1>
     </div>
