@@ -6,16 +6,25 @@ import EmojiMarquee from './emoji-marquee'
 const Time = () => {
   const [time, setTime] = useState('')
   const [lightningTime, setLightningTime] = useState('')
+  const [colors, setColors] = useState<string[]>([])
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date()
 
       const lt = new LightningTime()
-      setLightningTime(lt.convertToLightning(now).lightningString)
+      const convertedTime = lt.convertToLightning(now).lightningString
+      setLightningTime(convertedTime)
+      setColors(Object.values(lt.getColors(convertedTime)))
 
       const formattedTime = tt('{h}:{mm} {a}').render(now)
       setTime(formattedTime)
+      document.documentElement.style.setProperty('--boltColor', `#${colors[0]}`)
+      document.documentElement.style.setProperty('--zapColor', `#${colors[1]}`)
+      document.documentElement.style.setProperty(
+        '--sparkColor',
+        `#${colors[2]}`
+      )
     }, 100)
     return () => clearInterval(timer)
   }, [])
@@ -40,7 +49,7 @@ const Time = () => {
       </div>
       <div className="flex flex-col items-center justify-center font-mono">
         <h1
-          className={`text-[8vw] font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
+          className={`text-[8vw] font-bold underline underline-offset-[12px] decoration-white decoration-dotted decoration-8 gradient-time`}
         >
           {lightningTime}
         </h1>
