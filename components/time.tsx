@@ -13,8 +13,7 @@ const Time = () => {
 
       const lt = new LightningTime()
       const convertedTime = lt.convertToLightning(now).lightningString
-      const _colors = lt.getColors(convertedTime)
-      const colors = Object.values(_colors)
+      const colors = Object.values(lt.getColors(convertedTime))
       setLightningTime(convertedTime)
 
       const formattedTime = tt('{h}:{mm} {a}').render(now)
