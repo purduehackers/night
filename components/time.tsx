@@ -13,18 +13,10 @@ const Time = () => {
 
       const lt = new LightningTime()
       const convertedTime = lt.convertToLightning(now).lightningString
-      const _colors = lt.getColors(convertedTime)
-      const colors = Object.values(_colors)
       setLightningTime(convertedTime)
 
       const formattedTime = tt('{h}:{mm} {a}').render(now)
       setTime(formattedTime)
-      document.documentElement.style.setProperty('--boltColor', `#${colors[0]}`)
-      document.documentElement.style.setProperty('--zapColor', `#${colors[1]}`)
-      document.documentElement.style.setProperty(
-        '--sparkColor',
-        `#${colors[2]}`
-      )
     }, 100)
     return () => clearInterval(timer)
   }, [])
@@ -49,7 +41,7 @@ const Time = () => {
       </div>
       <div className="flex flex-col items-center justify-center font-mono">
         <h1
-          className={`text-[8vw] font-bold underline underline-offset-[12px] decoration-white decoration-dotted decoration-8 gradient-time`}
+          className={`text-[8vw] font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
         >
           {lightningTime}
         </h1>
