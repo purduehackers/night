@@ -1,21 +1,11 @@
 import useSWR from 'swr'
 
-const NowPlaying = () => {
-  const fallbackSongData = {
-    title: 'Not playing',
-    artist: 'Not playing',
-    image:
-      'https://collegian.com/wp-content/uploads/2017/08/spotify-1759471_1280.jpg'
-  }
+const NowPlaying = ({ songData }: { songData: any }) => {
   const fallbackFishData = {
     url: 'https://v5.airtableusercontent.com/v1/9/9/1666828800000/tlZplDSgY0TDPT--9K2Qvw/RB3_qnXu1I1s04S57VQcSpREXBpm2GvbBasWMHHjifmCqiUOr4EQjulb5rJo3LZropy5WTSkUvlXo6vufm4KFw/26Na1OLaYI7mSfHjk67nEQ-Uew_68_mowWa8txLQP6A'
   }
   //@ts-ignore
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
-  const { data: songData } = useSWR('/api/playing', fetcher, {
-    fallbackData: fallbackSongData,
-    refreshInterval: 5000
-  })
   const { data: fishData } = useSWR('/api/fetch-fish', fetcher, {
     fallbackData: fallbackFishData,
     refreshInterval: 10000

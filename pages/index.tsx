@@ -58,7 +58,7 @@ const Home = () => {
         }}
       >
         <div className="grid grid-cols-3 grid-gap-0 min-h-screen bg-gray-800/80 backdrop-blur-lg">
-          <NowPlaying />
+          <NowPlaying songData={songData} />
           <Time />
           <Posts />
         </div>
