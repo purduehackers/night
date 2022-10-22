@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Posts from '../components/posts'
 import NowPlaying from '../components/now-playing'
 import Time from '../components/time'
+import useSWR from 'swr'
 
 const Home = () => {
   const { data: session } = useSession()
@@ -14,6 +15,19 @@ const Home = () => {
     signOut()
     router.push('/')
   }
+
+  const fallbackSongData = {
+    title: 'Not playing',
+    artist: 'Not playing',
+    image:
+      'https://collegian.com/wp-content/uploads/2017/08/spotify-1759471_1280.jpg'
+  }
+  //@ts-ignore
+  const fetcher = (...args) => fetch(...args).then((res) => res.json())
+  const { data: songData } = useSWR('/api/playing', fetcher, {
+    fallbackData: fallbackSongData,
+    refreshInterval: 5000
+  })
 
   if (!session) {
     return (
@@ -36,10 +50,18 @@ const Home = () => {
         <title>Hack Night</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-3 grid-gap-0 min-h-screen">
-        <NowPlaying />
-        <Time />
-        <Posts />
+      <div
+        style={{
+          backgroundImage: `url(${songData.image})`,
+          backgroundSize: '125vw',
+          backgroundPosition: '50% 40%'
+        }}
+      >
+        <div className="grid grid-cols-3 grid-gap-0 min-h-screen bg-gray-800/80 backdrop-blur-lg">
+          <NowPlaying />
+          <Time />
+          <Posts />
+        </div>
       </div>
     </div>
   )
