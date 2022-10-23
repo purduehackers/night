@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import tt from 'tinytime'
+import { format } from 'date-fns'
 import { LightningTime } from '@purduehackers/time'
 import EmojiMarquee from './emoji-marquee'
 
@@ -15,7 +15,7 @@ const Time = () => {
       const convertedTime = lt.convertToLightning(now).lightningString
       setLightningTime(convertedTime)
 
-      const formattedTime = tt('{h}:{mm} {a}').render(now)
+      const formattedTime = format(now, 'h:mm a')
       setTime(formattedTime)
     }, 100)
     return () => clearInterval(timer)
