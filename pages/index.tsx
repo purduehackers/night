@@ -57,7 +57,7 @@ const Home = () => {
           backgroundPosition: '50% 40%'
         }}
       >
-        <div className="grid grid-cols-3 grid-gap-0 min-h-screen bg-gray-800/80 backdrop-blur-lg">
+        <div className="grid grid-cols-3 grid-gap-0 items-start min-h-screen bg-gray-800/80 backdrop-blur-lg">
           <NowPlaying songData={songData} />
           <Time />
           <Posts />

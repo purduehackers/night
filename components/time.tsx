@@ -22,8 +22,8 @@ const Time = () => {
   }, [])
 
   return (
-    <div className="grid grid-rows-3 items-center justify-center w-full">
-      <div className="flex flex-col items-center justify-center">
+    <div className="grid grid-rows-3 items-end w-full">
+      <div className="flex flex-col items-center justify-center mt-4">
         <EmojiMarquee />
         <h1 className="text-5xl font-bold">
           <img src="/ph-logo-cropped.png" className="inline-block h-[3.5rem]" />{' '}
@@ -39,7 +39,7 @@ const Time = () => {
         </div>
         <EmojiMarquee />
       </div>
-      <div className="flex flex-col items-center justify-center font-mono">
+      <div className="flex flex-col items-center font-mono">
         <h1
           className={`text-[8vw] font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
         >
