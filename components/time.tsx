@@ -31,9 +31,12 @@ const Time = () => {
         </h1>
         <div className="flex flex-row gap-x-2">
           <h1 className="text-gray-300 text-3xl font-bold">1.0</h1>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-row gap-1 items-center">
             <div className="bg-amber-400 text-black rounded px-1">
               <p className="text-sm font-bold">stable</p>
+            </div>
+            <div className="bg-blue-300 text-black rounded px-1">
+              <p className="text-sm font-bold">fishy</p>
             </div>
           </div>
         </div>
