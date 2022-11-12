@@ -22,7 +22,7 @@ const Time = () => {
   }, [])
 
   return (
-    <div className="grid grid-rows-3 items-end justify-center w-full">
+    <div className="grid items-end justify-center w-full grid-rows-3">
       <div className="flex flex-col items-center justify-center my-4">
         <EmojiMarquee />
         <h1 className="text-5xl font-bold">
@@ -30,12 +30,12 @@ const Time = () => {
           Hack Night 🌙
         </h1>
         <div className="flex flex-row gap-x-2">
-          <h1 className="text-gray-300 text-3xl font-bold">1.0</h1>
-          <div className="flex flex-row gap-1 items-center">
-            <div className="bg-amber-400 text-black rounded px-1">
+          <h1 className="text-3xl font-bold text-gray-300">1.1</h1>
+          <div className="flex flex-row items-center gap-1">
+            <div className="px-1 text-black rounded bg-amber-400">
               <p className="text-sm font-bold">stable</p>
             </div>
-            <div className="bg-blue-300 text-black rounded px-1">
+            <div className="px-1 text-black bg-blue-300 rounded">
               <p className="text-sm font-bold">fishy</p>
             </div>
           </div>
@@ -48,7 +48,7 @@ const Time = () => {
         >
           {lightningTime}
         </h1>
-        <p className="font-bold text-2xl">({time})</p>
+        <p className="text-2xl font-bold">({time})</p>
       </div>
     </div>
   )
