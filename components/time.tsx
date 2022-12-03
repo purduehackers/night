@@ -25,11 +25,11 @@ const Time = () => {
     <div className="grid items-end justify-center w-full grid-rows-3">
       <div className="flex flex-col items-center justify-center my-4">
         <EmojiMarquee />
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-4xl font-bold">
           <img src="/ph-logo-cropped.png" className="inline-block h-[3.5rem]" />{' '}
-          Hack Night 🌙
+          HOLIDAY SOCIAL ❄️
         </h1>
-        <div className="flex flex-row gap-x-2">
+        {/* <div className="flex flex-row gap-x-2">
           <h1 className="text-3xl font-bold text-gray-300">1.2</h1>
           <div className="flex flex-row items-center gap-1">
             <div className="px-1 text-black rounded bg-amber-400">
@@ -39,7 +39,7 @@ const Time = () => {
               <p className="text-sm font-bold">smoky</p>
             </div>
           </div>
-        </div>
+        </div> */}
         <EmojiMarquee />
       </div>
       <div className="flex flex-col items-center font-mono">
