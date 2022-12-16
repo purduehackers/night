@@ -35,7 +35,7 @@ const Home = () => {
         <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
           <button
             className="bg-green-500 rounded-lg p-6 font-bold text-4xl shadow-lg"
-            onClick={() => signIn()}
+            onClick={() => signIn('spotify')}
           >
             Sign in with Spotify
           </button>
