@@ -4,7 +4,7 @@ the website we display during hack nights 🌝
 
 it looks something like this:
 
-![img_1283](https://user-images.githubusercontent.com/14811170/196318219-527f7a62-447a-4294-a49a-1c47f1506e64.jpeg)
+![IMG_1297](https://user-images.githubusercontent.com/14811170/208280431-2cf0f400-0a16-4f0b-90d9-1802f229ac8f.jpeg)
 
 - at the left: currently-playing song from spotify. under it, the fish of the day
 - in the middle: current hack night event version (fun fact: the moons are a marquee 🌝), current time in [lightning time](https://github.com/purduehackers/time)
