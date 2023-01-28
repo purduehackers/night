@@ -11,10 +11,16 @@ const NowPlaying = ({ songData }: { songData: any }) => {
     refreshInterval: 10000
   })
   return (
-    <div className="flex flex-col text-center w-4/12 mx-auto">
-      <img src={songData.image} className="rounded-lg" />
-      <p className="font-bold text-4xl mt-4 mb-2">{songData.title}</p>
-      <p className="text-xl text-gray-300">{songData.artist}</p>
+    <div className="flex justify-around">
+      <div className="flex flex-col items-center">
+        <img src={fishData.url} className="rounded-lg h-48" />
+        <p className="font-bold text-4xl mt-4 mb-2">FISH OF THE DAY</p>
+      </div>
+      <div className="flex flex-col items-center">
+        <img src={songData.image} className="rounded-lg h-48" />
+        <p className="font-bold text-4xl mt-4 mb-2">{songData.title}</p>
+        <p className="text-xl text-gray-300">{songData.artist}</p>
+      </div>
     </div>
   )
 }
