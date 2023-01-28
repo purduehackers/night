@@ -33,7 +33,7 @@ const Posts = () => {
   }, [])
 
   return (
-    <div className="flex flex-col items-end pr-8 pl-11 mt-4 w-full">
+    <div className="flex flex-col gap-4">
       {posts.map((post: Post, i: number) => (
         <ProjectCard
           username={post.username}

@@ -45,23 +45,24 @@ const Home = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-900 text-white">
+    <div
+      className=" bg-gray-900 text-white"
+      style={{
+        backgroundImage: `url(${songData.image})`,
+        backgroundSize: '125vw',
+        backgroundPosition: '50% 40%'
+      }}
+    >
       <Head>
         <title>Hack Night</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        style={{
-          backgroundImage: `url(${songData.image})`,
-          backgroundSize: '125vw',
-          backgroundPosition: '50% 40%'
-        }}
-      >
-        <div className="grid grid-cols-3 grid-gap-0 items-start min-h-screen bg-gray-800/80 backdrop-blur-lg">
-          <NowPlaying songData={songData} />
+      <div className="grid grid-cols-2 grid-gap-0 items-start  bg-gray-800/80 backdrop-blur-lg min-h-screen p-4">
+        <div className="h-full flex flex-col justify-between">
           <Time />
-          <Posts />
+          <NowPlaying songData={songData} />
         </div>
+        <Posts />
       </div>
     </div>
   )

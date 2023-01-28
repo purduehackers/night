@@ -14,15 +14,17 @@ const ProjectCard = ({
   color
 }: PostData) => (
   <div
-    className={`rounded-lg w-full p-4 text-white mt-4`}
+    className="rounded-lg text-white flex p-4"
     style={{ border: `8px solid #${color}` }}
   >
-    <div className="flex flex-row items-center gap-x-2">
-      <img className="w-10 rounded-full" src={avatar} />
-      <h1 className="font-bold">{username}</h1>
+    <div className="flex-1">
+      <div className="flex flex-row items-center gap-x-2">
+        <img className="w-10 rounded-full" src={avatar} />
+        <h1 className="font-bold">{username}</h1>
+      </div>
+      <p className="mt-4">{description}</p>
     </div>
-    <p className="mt-4">{description}</p>
-    <img src={image} className="mt-2 max-h-24 rounded" />
+    <img src={image} className="rounded max-h-48" />
   </div>
 )
 

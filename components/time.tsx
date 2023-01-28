@@ -22,8 +22,8 @@ const Time = () => {
   }, [])
 
   return (
-    <div className="grid items-end justify-center w-full grid-rows-3">
-      <div className="flex flex-col items-center justify-center my-4">
+    <div>
+      <div className="flex flex-col items-center">
         <EmojiMarquee />
         <h1 className="text-4xl font-bold">
           <img src="/ph-logo-cropped.png" className="inline-block h-[3.5rem]" />{' '}
