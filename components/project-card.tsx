@@ -14,7 +14,7 @@ const ProjectCard = ({
   color
 }: PostData) => (
   <div
-    className={`rounded-lg w-full p-4 text-white mt-4`}
+    className={`rounded-2xl w-full p-4 text-white mt-4`}
     style={{ border: `8px solid #${color}` }}
   >
     <div className="flex flex-row items-center gap-x-2">
