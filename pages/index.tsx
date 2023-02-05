@@ -6,7 +6,12 @@ import Posts from '../components/posts'
 import NowPlaying from '../components/now-playing'
 import Time from '../components/time'
 import useSWR from 'swr'
-import { Bento } from '../components/Bento'
+
+import dynamic from 'next/dynamic'
+
+const Bento = dynamic(() => import('../components/Bento'), {
+  ssr: false
+})
 
 const Home = () => {
   const { data: session } = useSession()
