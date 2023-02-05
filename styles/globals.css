@@ -10,3 +10,59 @@
     @apply font-main;
   }
 }
+
+/* https://www.magicpattern.design/tools/css-backgrounds */
+.picnic-blanket {
+  background-color: #e2e2f9;
+  opacity: 1;
+  background-image: linear-gradient(
+      30deg,
+      #fbcb3b 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #fbcb3b 87.5%,
+      #fbcb3b
+    ),
+    linear-gradient(
+      150deg,
+      #fbcb3b 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #fbcb3b 87.5%,
+      #fbcb3b
+    ),
+    linear-gradient(
+      30deg,
+      #fbcb3b 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #fbcb3b 87.5%,
+      #fbcb3b
+    ),
+    linear-gradient(
+      150deg,
+      #fbcb3b 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #fbcb3b 87.5%,
+      #fbcb3b
+    ),
+    linear-gradient(
+      60deg,
+      #fbcb3b77 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #fbcb3b77 75%,
+      #fbcb3b77
+    ),
+    linear-gradient(
+      60deg,
+      #fbcb3b77 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #fbcb3b77 75%,
+      #fbcb3b77
+    );
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}

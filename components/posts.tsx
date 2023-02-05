@@ -6,20 +6,14 @@ import { Post } from '../types/types'
 import ProjectCard from './project-card'
 
 const Posts = () => {
-  const fallbackData = [
-    {
-      username: '',
-      avatar: [{ url: '' }],
-      description: '',
-      attachments: [{ url: '' }]
-    }
-  ]
   //@ts-ignore
-  const fetcher = (...args) => fetch(...args).then((res) => res.json())
-  const { data: posts } = useSWR('/api/fetch-posts', fetcher, {
-    fallbackData,
-    refreshInterval: 5000
-  })
+  // const fetcher = (...args) => fetch(...args).then((res) => res.json())
+  // const { data: posts } = useSWR('/api/fetch-posts', fetcher, {
+  //   fallbackData,
+  //   refreshInterval: 5000
+  // })
+
+  const posts = fallbackData
 
   const [colors, setColors] = useState<string[]>([])
 
