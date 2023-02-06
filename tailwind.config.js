@@ -48,6 +48,9 @@ module.exports = {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' }
         }
+      },
+      gridTemplateRows: {
+        9: 'repeat(9, minmax(0, 1fr))'
       }
     }
   },

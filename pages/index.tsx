@@ -8,6 +8,7 @@ import Time from '../components/time'
 import useSWR from 'swr'
 
 import dynamic from 'next/dynamic'
+import { TimeContextProvider } from '../components/TimeProvider'
 
 const Bento = dynamic(() => import('../components/Bento'), {
   ssr: false
@@ -77,7 +78,9 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-screen flex picnic-blanket">
-        <Bento />
+        <TimeContextProvider>
+          <Bento />
+        </TimeContextProvider>
       </div>
     </>
   )
