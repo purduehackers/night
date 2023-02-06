@@ -23,32 +23,27 @@ type Props = {
  * Using this context will cause a rerender every 1.5s
  */
 export const TimeContextProvider = ({ children }: Props) => {
-  const [lightningString, setLightningString] = useState(
-    lt.convertToLightning(new Date()).lightningString
-  )
-  const [date, setDate] = useState(new Date())
+  const [value, setValue] = useState<TimeContextValue>({
+    lightningString: lt.convertToLightning(new Date()).lightningString,
+    date: new Date()
+  })
 
   useEffect(() => {
     const timer = setInterval(() => {
       const newDate = new Date()
       const newLightning = lt.convertToLightning(newDate).lightningString
 
-      if (newLightning === lightningString) return
+      setValue((oldValue) => {
+        if (oldValue.lightningString === newLightning) return oldValue
 
-      setLightningString(newLightning)
-      setDate(newDate)
+        return {
+          lightningString: newLightning,
+          date: newDate
+        }
+      })
     }, 100)
     return () => clearInterval(timer)
   }, [])
 
-  return (
-    <TimeContext.Provider
-      value={{
-        lightningString,
-        date
-      }}
-    >
-      {children}
-    </TimeContext.Provider>
-  )
+  return <TimeContext.Provider value={value}>{children}</TimeContext.Provider>
 }

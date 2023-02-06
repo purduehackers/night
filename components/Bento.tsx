@@ -1,12 +1,5 @@
 import { LightningTime } from '@purduehackers/time'
-import {
-  useState,
-  useEffect,
-  ReactNode,
-  useMemo,
-  useRef,
-  useContext
-} from 'react'
+import { useState, useEffect, ReactNode, useRef, useContext } from 'react'
 
 import { Post } from '../types/types'
 import {
@@ -230,7 +223,7 @@ const Bento = () => {
   const imgRefs = [boltRef, zapRef, sparkRef]
 
   const { boltColor, zapColor, sparkColor } = lt.getColors(lightningString)
-  // Reversed so rightmost project correspects to bolt etc...
+  // Reversed so leftmost project corresponds to bolt etc...
   const colors = [sparkColor, zapColor, boltColor]
 
   /**
@@ -253,10 +246,7 @@ const Bento = () => {
     ])
   }, [boltRef.current])
 
-  // console.log(imageTypes)
   const seq = shapeSeqFromImgTypes(imageTypes)
-
-  // console.log('seq', seq)
 
   const postSlots = posts.map((post: Post, index) => (
     <SlotProject
@@ -322,6 +312,6 @@ const r = () => {
 // const fallbackData = [r(), s(), s()]
 // const fallbackData = [s(), s(), s()]
 // const fallbackData = [s(), s(), r()]
-// const fallbackData = [s(), r(), s()]
+const fallbackData = [s(), r(), s()]
 // const fallbackData = [r(), s(), r()]
-const fallbackData = [r(), r(), r()]
+// const fallbackData = [r(), r(), r()]
