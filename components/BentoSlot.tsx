@@ -1,5 +1,7 @@
 import { format } from 'date-fns'
-import React, { RefObject, useContext } from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from './DataProvider'
+
 import { TimeContext } from './TimeProvider'
 
 type Props = {
@@ -14,7 +16,7 @@ type Props = {
 export const SlotProject = React.forwardRef<HTMLImageElement, Props>(
   ({ imgSrc, desc, avatarSrc, username, className, style }, ref) => {
     return (
-      <div className={`overflow-clip ${slotBase} ${className}`} style={style}>
+      <div className={`${slotBase} ${className}`} style={style}>
         <div className="basis-1/2">
           <img src={imgSrc} ref={ref} />
         </div>
@@ -28,8 +30,7 @@ export const SlotProject = React.forwardRef<HTMLImageElement, Props>(
   }
 )
 
-const slotCommon = 'border-stone-600 border rounded-xl'
-const slotBase = `${slotCommon} shadow-[inset_0_0_40px_20px_black] m-1`
+const slotBase = `border-stone-600 border rounded-xl overflow-clip shadow-[inset_0_0_20px_10px_black] m-1`
 const slotRed = `${slotBase} bg-red-900`
 
 export const SlotTime = () => {
@@ -37,13 +38,17 @@ export const SlotTime = () => {
   const time = format(date, 'h:mm a')
 
   return (
-    <div className={`col-span-6 row-span-3 overflow-clip p-3 ${slotRed}`}>
+    <div
+      className={`col-span-6 row-span-3 p-3 flex flex-col justify-around ${slotRed}`}
+      style={{
+        backgroundImage:
+          "url('https://t3.ftcdn.net/jpg/00/79/54/60/360_F_79546022_4j5WwFYNcsiaywekL9sF340RTQ1A85I3.jpg')"
+      }}
+    >
       <div className="flex gap-2 items-center">
         <img src="/ph-logo-cropped.png" className="inline h-14" />
         <div>
-          <h1 className="flex gap-2 items-center text-3xl font-bold text-white">
-            HACK NIGHT 1.3
-          </h1>
+          <h1 className="text-2xl font-bold text-black">HACK NIGHT 1.3</h1>
           <span className="px-1 text-sm font-bold text-black rounded bg-amber-400">
             now with more fish!
           </span>
@@ -51,22 +56,44 @@ export const SlotTime = () => {
       </div>
       <div className="text-center">
         <span
-          className={`text-8xl font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
+          className={`text-8xl font-bold underline underline-offset-[12px] text-amber-300 decoration-black decoration-dotted decoration-8`}
+          style={{ textShadow: '1px 1px 8px black' }}
         >
           {lightningString}
         </span>
-        <p className="mt-2 text-3xl text-white font-bold">({time})</p>
+        <p className="mt-2 text-3xl text-black font-bold">({time})</p>
       </div>
     </div>
   )
 }
 
 export const Slot4x2 = () => {
-  return <div className={`col-span-4 row-span-2 ${slotRed}`}></div>
+  return (
+    <div className={`col-span-4 row-span-2 ${slotRed} overflow-visible`}>
+      <img src="./omelette_h.png" className="z-50 relative w-full"></img>
+    </div>
+  )
 }
 
-export const Slot1x3 = () => {
-  return <div className={`col-span-1 row-span-3 ${slotRed}`}></div>
+export const Slot2x4 = () => {
+  return (
+    <div className={`col-span-2 row-span-4 ${slotRed} overflow-visible`}>
+      <img src="./omelette_v.png" className="z-50 relative w-full -mt-4"></img>
+    </div>
+  )
+}
+
+export const Slot4x2Spotify = () => {
+  const { songData } = useContext(DataContext)
+  return (
+    <div className={`col-span-4 row-span-2 ${slotRed} flex`}>
+      <img src={songData.image} className="rounded-lg" />
+      <div className="p-2">
+        <p className="font-bold text-3xl text-white">{songData.title}</p>
+        <p className="text-xl text-gray-300">{songData.artist}</p>
+      </div>
+    </div>
+  )
 }
 
 export const Slot2x1 = () => {
@@ -80,36 +107,52 @@ export const Slot2x1 = () => {
   )
 }
 
+export const SlotFOD = () => {
+  const { fishData } = useContext(DataContext)
+  return (
+    <div className={`col-span-4 row-span-3 ${slotRed}`}>
+      <img className="h-full object-contain" src={fishData.url} />
+    </div>
+  )
+}
+
 export const Slot2x2 = () => {
-  return <div className={`col-span-2 row-span-2 ${slotRed}`}></div>
-}
-
-export const Slot3x3 = () => {
-  return <div className={`col-span-3 row-span-3 ${slotRed}`}></div>
-}
-
-export const Slot2x3 = () => {
-  return <div className={`col-span-2 row-span-3 ${slotRed}`}></div>
-}
-
-export const SlotLTop = () => {
   return (
-    <div
-      className={`col-span-2 row-span-2 m-1 mb-0 border-b-0 rounded-b-none shadow-[inset_-20px_20px_40px_5px_black_,_inset_20px_-20px_40px_5px_#1c1917] ${slotCommon}`}
-    ></div>
+    <div className={`col-span-2 row-span-2 ${slotRed} overflow-visible`}>
+      <img
+        src="./broccoli.png"
+        className="z-50 relative"
+        style={{ width: '150%', maxWidth: 'unset', margin: '-25%' }}
+      ></img>
+    </div>
   )
 }
-export const SlotLLeft = () => {
+
+export const Slot2x3Spotify = () => {
+  const { songData } = useContext(DataContext)
   return (
-    <div
-      className={`col-span-2 row-span-2 m-1 mr-0 border-r-0 rounded-r-none shadow-[inset_20px_-20px_40px_5px_black_,_inset_-20px_20px_40px_5px_#1c1917] ${slotCommon}`}
-    ></div>
+    <div className={`col-span-2 row-span-3 ${slotRed}`}>
+      <img src={songData.image} className="rounded-lg" />
+      <div className="p-2">
+        <p className="font-bold text-xl text-white">{songData.title}</p>
+        <p className="text-xl text-gray-300">{songData.artist}</p>
+      </div>
+    </div>
   )
 }
-export const SlotLCenter = () => {
+
+export const Slot2x3Tempura = () => {
   return (
-    <div
-      className={`col-span-2 row-span-2 m-1 mt-0 ml-0 border-t-0 border-l-0 rounded-t-none rounded-l-none shadow-[inset_-20px_-20px_40px_5px_black_,_inset_20px_20px_40px_5px_#1c1917] ${slotCommon}`}
-    ></div>
+    <div className={`col-span-2 row-span-3 ${slotRed} overflow-visible`}>
+      <img src="./octopus.png" className="z-50 relative -mt-4 w-100"></img>
+    </div>
+  )
+}
+
+export const Slot2x3Octopus = () => {
+  return (
+    <div className={`col-span-2 row-span-3 ${slotRed} overflow-visible`}>
+      <img src="./tempura.png" className="z-50 relative w-100"></img>
+    </div>
   )
 }

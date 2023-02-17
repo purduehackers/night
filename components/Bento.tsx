@@ -1,17 +1,19 @@
 import { LightningTime } from '@purduehackers/time'
 import { useState, useEffect, ReactNode, useRef, useContext } from 'react'
+import useSWR from 'swr'
+import { fetcher } from '../lib/util'
 
 import { Post } from '../types/types'
 import {
-  Slot1x3,
   Slot2x1,
   Slot2x2,
-  Slot2x3,
-  Slot3x3,
+  Slot2x3Octopus,
+  Slot2x3Tempura,
+  Slot2x4,
+  Slot2x3Spotify,
   Slot4x2,
-  SlotLCenter,
-  SlotLLeft,
-  SlotLTop,
+  Slot4x2Spotify,
+  SlotFOD,
   SlotProject,
   SlotTime
 } from './BentoSlot'
@@ -29,17 +31,15 @@ const rendererFromSequence: Record<
     return (
       <>
         <SlotTime />
-        <Slot2x3 />
+        <Slot2x3Tempura />
         {postsSlots[0]}
-        <Slot4x2 />
+        <Slot4x2Spotify />
         {postsSlots[1]}
-        <Slot2x3 />
-        <Slot2x1 />
+        <SlotFOD />
         {postsSlots[2]}
+        <Slot2x2 />
         <Slot4x2 />
-        <SlotLTop />
-        <SlotLLeft />
-        <SlotLCenter />
+        <Slot2x2 />
       </>
     )
   },
@@ -47,18 +47,16 @@ const rendererFromSequence: Record<
     return (
       <>
         <SlotTime />
-        <Slot2x2 />
+        <Slot2x4 />
         {postsSlots[0]}
+        <Slot2x3Octopus />
+        <SlotFOD />
+        <Slot2x1 />
+        <Slot2x1 />
         <Slot2x2 />
-        <Slot1x3 />
-        <Slot2x3 />
-        <Slot3x3 />
         {postsSlots[1]}
-        <Slot2x2 />
         {postsSlots[2]}
-        <Slot2x3 />
-        <Slot2x1 />
-        <Slot2x1 />
+        <Slot2x3Tempura />
       </>
     )
   },
@@ -66,18 +64,14 @@ const rendererFromSequence: Record<
     return (
       <>
         <SlotTime />
-        <Slot2x1 />
+        <Slot2x3Tempura />
         {postsSlots[0]}
-        <Slot2x3 />
+        <Slot4x2Spotify />
+        <SlotFOD />
         <Slot4x2 />
-        <Slot2x1 />
-        {postsSlots[1]}
-        <Slot2x1 />
         {postsSlots[2]}
-        <Slot4x2 />
-        <SlotLTop />
-        <SlotLLeft />
-        <SlotLCenter />
+        {postsSlots[1]}
+        <Slot2x3Octopus />
       </>
     )
   },
@@ -85,19 +79,15 @@ const rendererFromSequence: Record<
     return (
       <>
         <SlotTime />
-        <Slot2x3 />
-        {postsSlots[0]}
-        <Slot1x3 />
-        <Slot1x3 />
-        {postsSlots[1]}
-        <Slot2x3 />
-        <Slot2x1 />
-        <SlotLTop />
-        {postsSlots[2]}
         <Slot2x2 />
-        <SlotLLeft />
-        <SlotLCenter />
-        <Slot2x1 />
+        {postsSlots[0]}
+        <Slot2x2 />
+        <Slot2x3Spotify />
+        <SlotFOD />
+        {postsSlots[1]}
+        {postsSlots[2]}
+        <Slot4x2 />
+        <Slot2x2 />
       </>
     )
   },
@@ -106,16 +96,13 @@ const rendererFromSequence: Record<
       <>
         <SlotTime />
         {postsSlots[0]}
-        <Slot4x2 />
+        <Slot4x2Spotify />
         {postsSlots[1]}
-        <Slot2x3 />
-        <Slot2x2 />
+        <SlotFOD />
         {postsSlots[2]}
-        <SlotLTop />
-        <Slot2x1 />
+        <Slot2x3Tempura />
+        <Slot2x3Octopus />
         <Slot4x2 />
-        <SlotLLeft />
-        <SlotLCenter />
       </>
     )
   },
@@ -124,16 +111,13 @@ const rendererFromSequence: Record<
       <>
         <SlotTime />
         {postsSlots[0]}
-        <Slot1x3 />
-        <Slot2x3 />
-        <Slot3x3 />
+        <Slot2x3Spotify />
+        <SlotFOD />
         {postsSlots[1]}
         <Slot2x2 />
         {postsSlots[2]}
-        <SlotLTop />
-        <Slot2x2 />
-        <SlotLLeft />
-        <SlotLCenter />
+        <Slot2x4 />
+        <Slot4x2 />
       </>
     )
   },
@@ -142,16 +126,13 @@ const rendererFromSequence: Record<
       <>
         <SlotTime />
         {postsSlots[0]}
-        <Slot4x2 />
+        <Slot4x2Spotify />
         {postsSlots[1]}
         <Slot2x2 />
         {postsSlots[2]}
-        <SlotLTop />
-        <Slot1x3 />
-        <Slot3x3 />
-        <Slot2x1 />
-        <SlotLLeft />
-        <SlotLCenter />
+        <Slot2x4 />
+        <Slot2x3Octopus />
+        <SlotFOD />
       </>
     )
   },
@@ -160,16 +141,13 @@ const rendererFromSequence: Record<
       <>
         <SlotTime />
         {postsSlots[0]}
-        <Slot1x3 />
-        <Slot3x3 />
+        <Slot2x3Spotify />
+        <SlotFOD />
         {postsSlots[1]}
-        <Slot2x2 />
         {postsSlots[2]}
-        <SlotLTop />
-        <Slot2x3 />
-        <Slot2x1 />
-        <SlotLLeft />
-        <SlotLCenter />
+        <Slot2x3Tempura />
+        <Slot2x3Octopus />
+        <Slot2x3Tempura />
       </>
     )
   }
@@ -207,13 +185,20 @@ const shapeSeqFromImgTypes = (
   }-${types[2] === 'square' ? 'rect' : 'square'}`
 }
 
-const Bento = () => {
-  // const { data: posts } = useSWR('/api/fetch-posts', fetcher, {
-  //   fallbackData,
-  //   refreshInterval: 5000
-  // })
+const fallbackData = [
+  {
+    username: '',
+    avatar: [{ url: '' }],
+    description: '',
+    attachments: [{ url: '' }]
+  }
+]
 
-  const posts = fallbackData as Post[]
+const Bento = () => {
+  const { data: posts } = useSWR('/api/fetch-posts', fetcher, {
+    fallbackData,
+    refreshInterval: 5000
+  })
 
   const { lightningString } = useContext(TimeContext)
 
@@ -244,11 +229,11 @@ const Bento = () => {
       typeFromImg(zapRef.current),
       typeFromImg(sparkRef.current)
     ])
-  }, [boltRef.current])
+  }, [boltRef.current, zapRef.current, sparkRef.current])
 
   const seq = shapeSeqFromImgTypes(imageTypes)
 
-  const postSlots = posts.map((post: Post, index) => (
+  const postSlots = posts.map((post: Post, index: number) => (
     <SlotProject
       key={postKey(post)}
       imgSrc={post.attachments[0].url}
@@ -264,7 +249,7 @@ const Bento = () => {
   ))
 
   return (
-    <div className="max-h-screen aspect-[4/3] bg-stone-800 p-3 m-auto rounded-sm shadow-[10px_10_50px_10px_black]">
+    <div className="max-h-screen aspect-[4/3] bg-stone-800 p-6 m-auto rounded-sm shadow-[10px_10_50px_10px_black]">
       <div className="h-full grid grid-cols-12 grid-rows-9 grid-flow-row-dense p-1 bg-stone-900 rounded-lg shadow-[inset_0_0_40px_20px_#080808]">
         {rendererFromSequence[seq](postSlots)}
       </div>
@@ -274,44 +259,46 @@ const Bento = () => {
 
 export default Bento
 
-const s = () => {
-  return {
-    username: 'wide long' + Math.floor(Math.random() * 1000),
-    avatar: [
-      { url: 'https://avatars.githubusercontent.com/u/5734109?s=200&v=4' }
-    ],
-    description:
-      'but this is even cooler and i spent more time to type an extra long description',
-    attachments: [
-      {
-        url:
-          Math.random() > 0.5
-            ? 'https://media.discordapp.net/attachments/1020777328172859412/1068789112158556221/Screenshot_from_2023-01-28_00-43-03.png?width=1440&height=714'
-            : 'https://media.discordapp.net/attachments/1052236377338683514/1070483168454524938/maybe.jpg?width=351&height=742'
-      }
-    ]
-  }
-}
+// const s = () => {
+//   return {
+//     username: 'wide long' + Math.floor(Math.random() * 1000),
+//     avatar: [
+//       { url: 'https://avatars.githubusercontent.com/u/5734109?s=200&v=4' }
+//     ],
+//     description:
+//       'but this is even cooler and i spent more time to type an extra long description',
+//     attachments: [
+//       {
+//         url:
+//           Math.random() > 0.5
+//             ? 'https://media.discordapp.net/attachments/1020777328172859412/1068789112158556221/Screenshot_from_2023-01-28_00-43-03.png?width=1440&height=714'
+//             : 'https://media.discordapp.net/attachments/1052236377338683514/1070483168454524938/maybe.jpg?width=351&height=742'
+//       }
+//     ]
+//   }
+// }
 
-const r = () => {
-  return {
-    username: 'square long' + Math.floor(Math.random() * 1000),
-    avatar: [
-      { url: 'https://avatars.githubusercontent.com/u/5734109?s=200&v=4' }
-    ],
-    description:
-      'but this is even cooler and also has a longer text description which is awfully convenient because there is more space',
-    attachments: [
-      {
-        url: 'https://media.discordapp.net/attachments/1020777328172859412/1068787892522078288/A7E2E609-8FC1-429D-8008-A7E90CB2624B.jpg?width=776&height=742'
-      }
-    ]
-  }
-}
+// const r = () => {
+//   return {
+//     username: 'square long' + Math.floor(Math.random() * 1000),
+//     avatar: [
+//       { url: 'https://avatars.githubusercontent.com/u/5734109?s=200&v=4' }
+//     ],
+//     description:
+//       'but this is even cooler and also has a longer text description which is awfully convenient because there is more space',
+//     attachments: [
+//       {
+//         url: 'https://media.discordapp.net/attachments/1020777328172859412/1068787892522078288/A7E2E609-8FC1-429D-8008-A7E90CB2624B.jpg?width=776&height=742'
+//       }
+//     ]
+//   }
+// }
 
 // const fallbackData = [r(), s(), s()]
-// const fallbackData = [s(), s(), s()]
-// const fallbackData = [s(), s(), r()]
-const fallbackData = [s(), r(), s()]
-// const fallbackData = [r(), s(), r()]
+// const fallbackData = [r(), r(), s()]
 // const fallbackData = [r(), r(), r()]
+// const fallbackData = [s(), r(), r()]
+// const fallbackData = [s(), s(), r()]
+// const fallbackData = [s(), s(), s()]
+// const fallbackData = [s(), r(), s()]
+// const fallbackData = [r(), s(), r()]
