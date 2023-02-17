@@ -1,11 +1,11 @@
-import type { GetStaticProps, NextPage } from 'next'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import useSWR from 'swr'
 import Posts from '../components/posts'
 import NowPlaying from '../components/now-playing'
 import Time from '../components/time'
-import useSWR from 'swr'
+import { DoorbellContext, DoorbellCard } from '../components/doorbell'
 
 const Home = () => {
   const { data: session } = useSession()
@@ -59,7 +59,12 @@ const Home = () => {
       >
         <div className="grid grid-cols-3 grid-gap-0 items-start min-h-screen bg-gray-800/80 backdrop-blur-lg">
           <NowPlaying songData={songData} />
-          <Time />
+          <div>
+            <Time />
+            <DoorbellContext>
+              <DoorbellCard />
+            </DoorbellContext>
+          </div>
           <Posts />
         </div>
       </div>

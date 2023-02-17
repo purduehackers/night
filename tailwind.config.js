@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     fontFamily: {
       main: '"Space Grotesk", system-ui, Roboto, sans-serif',
-      sans: '"Inter", sans-serif',
+      // sans: '"Inter", sans-serif',s
       mono: '"Space Mono"'
     },
     extend: {
