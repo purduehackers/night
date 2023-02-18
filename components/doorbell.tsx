@@ -56,7 +56,7 @@ export function DoorbellButton() {
 export function DoorbellCard() {
   const room = useRoom()
   const ringing = useStorage((root) => root.ringing)
-  const [play] = useSound('/doorbell.mp3')
+  const [play] = useSound('/doorbell.mp3', { volume: 0.67 })
 
   useEffect(() => {
     if (ringing) {
