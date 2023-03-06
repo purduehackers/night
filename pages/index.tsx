@@ -1,6 +1,4 @@
-import { useSession, signIn, signOut } from 'next-auth/react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import Posts from '../components/posts'
 import NowPlaying from '../components/now-playing'
@@ -8,14 +6,6 @@ import Time from '../components/time'
 import { DoorbellContext, DoorbellCard } from '../components/doorbell'
 
 const Home = () => {
-  const { data: session } = useSession()
-  const router = useRouter()
-
-  if (router.query?.signOut) {
-    signOut()
-    router.push('/')
-  }
-
   const fallbackSongData = {
     title: 'Not playing',
     artist: 'Not playing',
@@ -28,21 +18,6 @@ const Home = () => {
     fallbackData: fallbackSongData,
     refreshInterval: 5000
   })
-
-  if (!session) {
-    return (
-      <div className="flex h-screen flex-col items-center justify-center py-2">
-        <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-          <button
-            className="bg-green-500 rounded-lg p-6 font-bold text-4xl shadow-lg"
-            onClick={() => signIn('spotify')}
-          >
-            Sign in with Spotify
-          </button>
-        </main>
-      </div>
-    )
-  }
 
   return (
     <div className="flex min-h-screen flex-col bg-gray-900 text-white">

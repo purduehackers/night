@@ -2,7 +2,7 @@ const basic = Buffer.from(
   `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
 ).toString('base64')
 
-const getAccessToken = async (refreshToken: string) =>
+const getAccessToken = async () =>
   await fetch(`https://accounts.spotify.com/api/token`, {
     method: 'POST',
     headers: {
@@ -11,7 +11,7 @@ const getAccessToken = async (refreshToken: string) =>
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
-      refresh_token: refreshToken
+      refresh_token: process.env.REFRESH_TOKEN as string
     })
   }).then((r) => r.json())
 
