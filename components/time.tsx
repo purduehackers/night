@@ -27,13 +27,13 @@ const Time = () => {
         <EmojiMarquee />
         <h1 className="text-4xl font-bold">
           <img src="/ph-logo-cropped.png" className="inline-block h-[3.5rem]" />{' '}
-          HACK NIGHT
+          HACK LITE
         </h1>
         <div className="flex flex-row gap-x-2">
-          <h1 className="text-3xl font-bold text-gray-300">2.2</h1>
+          {/* <h1 className="text-3xl font-bold text-gray-300">2.2</h1> */}
           <div className="flex flex-row items-center gap-1">
-            <div className="px-1 text-black rounded bg-orange-400">
-              <p className="text-sm font-bold">now 1000000x brighter!</p>
+            <div className="px-1 text-black rounded bg-slate-300">
+              <p className="text-sm font-bold">extremely fake!</p>
             </div>
           </div>
         </div>
