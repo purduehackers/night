@@ -30,10 +30,10 @@ const Time = () => {
           HACK NIGHT
         </h1>
         <div className="flex flex-row gap-x-2">
-          <h1 className="text-3xl font-bold text-gray-300">2.4</h1>
+          <h1 className="text-3xl font-bold text-gray-300">2.5</h1>
           <div className="flex flex-row items-center gap-1">
-            <div className="px-1 text-black rounded bg-red-400">
-              <p className="text-sm font-bold">now declassified!</p>
+            <div className="px-1 text-black rounded bg-gradient-to-r from-pink-400 to-purple-400">
+              <p className="text-sm font-bold">now rainbow!</p>
             </div>
           </div>
         </div>
