@@ -30,7 +30,7 @@ const Time = () => {
           HACK NIGHT
         </h1>
         <div className="flex flex-row gap-x-2">
-          <h1 className="text-3xl font-bold text-gray-300">2.5</h1>
+          <h1 className="text-3xl font-bold text-gray-300">2.6</h1>
           <div className="flex flex-row items-center gap-1">
             <div className="px-1 text-black rounded bg-gradient-to-r from-gray-400 to-gray-500">
               <p className="text-sm font-bold">now reflective!</p>
