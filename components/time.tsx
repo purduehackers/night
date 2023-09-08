@@ -33,10 +33,10 @@ const Time = () => {
           <h1 className="text-3xl font-bold text-gray-300">3.0</h1>
           <div className="flex flex-row items-center gap-1">
             <div className="px-1 text-white rounded bg-gray-600">
-              <p className="text-sm font-bold">beta</p>
+              <p className="text-sm font-bold">stable</p>
             </div>
-            <div className="px-1 text-white rounded bg-pink-500">
-              <p className="text-sm font-bold">now with more CIRCLES</p>
+            <div className="px-1 text-white rounded bg-orange-600">
+              <p className="text-sm font-bold">now with EVEN more CIRCLES</p>
             </div>
           </div>
         </div>
