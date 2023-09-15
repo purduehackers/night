@@ -30,13 +30,12 @@ const Time = () => {
           HACK NIGHT
         </h1>
         <div className="flex flex-row gap-x-2">
-          <h1 className="text-3xl font-bold text-gray-300">3.0</h1>
+          <h1 className="text-3xl font-bold text-gray-300">3.1</h1>
           <div className="flex flex-row items-center gap-1">
-            <div className="px-1 text-white rounded bg-gray-600">
-              <p className="text-sm font-bold">stable</p>
-            </div>
-            <div className="px-1 text-white rounded bg-orange-600">
-              <p className="text-sm font-bold">now with EVEN more CIRCLES</p>
+            <div className="px-1 text-white rounded bg-orange-500">
+              <p className="text-sm font-bold">
+                now fully rotated around the Sun!
+              </p>
             </div>
           </div>
         </div>
