@@ -5,19 +5,11 @@ import { Post } from '../types/types'
 import ProjectCard from './project-card'
 import { LightningTimeContext } from './lightning-time-context'
 
-const Posts = () => {
-  const fallbackData = [
-    {
-      username: '',
-      avatar: [{ url: '' }],
-      description: '',
-      attachments: [{ url: '' }]
-    }
-  ]
+const Posts = ({ initialData }: { initialData: Post[] }) => {
   //@ts-ignore
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
   const { data: posts } = useSWR('/api/fetch-posts', fetcher, {
-    fallbackData,
+    fallbackData: initialData,
     refreshInterval: 5000
   })
 

@@ -1,8 +1,15 @@
 import useSWR from 'swr'
+import { Fish } from '../types/types'
 
-const NowPlaying = ({ songData }: { songData: any }) => {
+const NowPlaying = ({
+  initialFishData,
+  songData
+}: {
+  initialFishData: Fish
+  songData: any
+}) => {
   const fallbackFishData = {
-    url: 'https://v5.airtableusercontent.com/v1/9/9/1666828800000/tlZplDSgY0TDPT--9K2Qvw/RB3_qnXu1I1s04S57VQcSpREXBpm2GvbBasWMHHjifmCqiUOr4EQjulb5rJo3LZropy5WTSkUvlXo6vufm4KFw/26Na1OLaYI7mSfHjk67nEQ-Uew_68_mowWa8txLQP6A'
+    url: initialFishData.fish[0].url
   }
   //@ts-ignore
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
