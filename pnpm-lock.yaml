@@ -12,8 +12,8 @@ dependencies:
     specifier: ^1.0.0
     version: 1.7.1(react@18.2.0)
   '@purduehackers/time':
-    specifier: ^0.6.5
-    version: 0.6.5(react@18.2.0)
+    specifier: ^0.6.12
+    version: 0.6.12(react@18.2.0)
   airtable:
     specifier: ^0.11.5
     version: 0.11.6
@@ -240,8 +240,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@purduehackers/time@0.6.5(react@18.2.0):
-    resolution: {integrity: sha512-VUTw+OwCxelzPKtt+qd5n+X/REX2YTiw8M6ipyDTmUscSVT0tN1te3Ja2EaNkB6VQ9wDlPTdUcRRlWLxO8Z+9Q==}
+  /@purduehackers/time@0.6.12(react@18.2.0):
+    resolution: {integrity: sha512-K5t8uy+jgzgYy8AmHmBYAxMFS8Tt1XxGM2p8TO8AvLHDdi0uXHRUyx3M4hNwmV1zNjFuE3DO9Ic7xabozNYrDQ==}
     peerDependencies:
       react: '>=17.0.0'
     peerDependenciesMeta:

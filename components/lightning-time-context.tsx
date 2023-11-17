@@ -2,12 +2,12 @@ import { useLightningTimeClock } from '@purduehackers/time/react'
 import { createContext } from 'react'
 
 export const LightningTimeContext = createContext({
-  currentLightningTime: '0~0~0',
-  currentNormalTime: '12:00 AM',
+  currentLightningTime: '',
+  currentNormalTime: '',
   currentColors: {
-    boltColor: '#ffffff',
-    zapColor: '#ffffff',
-    sparkColor: '#ffffff'
+    boltColor: '',
+    zapColor: '',
+    sparkColor: ''
   }
 })
 
