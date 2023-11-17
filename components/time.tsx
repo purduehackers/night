@@ -1,25 +1,10 @@
-import { useEffect, useState } from 'react'
-import { format } from 'date-fns'
-import { LightningTime } from '@purduehackers/time'
+import { useContext } from 'react'
 import EmojiMarquee from './emoji-marquee'
+import { LightningTimeContext } from './lightning-time-context'
 
 const Time = () => {
-  const [time, setTime] = useState('')
-  const [lightningTime, setLightningTime] = useState('')
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date()
-
-      const lt = new LightningTime()
-      const convertedTime = lt.convertToLightning(now).lightningString
-      setLightningTime(convertedTime)
-
-      const formattedTime = format(now, 'h:mm a')
-      setTime(formattedTime)
-    }, 100)
-    return () => clearInterval(timer)
-  }, [])
+  const { currentLightningTime, currentNormalTime } =
+    useContext(LightningTimeContext)
 
   return (
     <div className="grid items-end justify-center w-full grid-rows-3">
@@ -43,9 +28,9 @@ const Time = () => {
         <h1
           className={`text-[8vw] font-bold underline underline-offset-[12px] text-amber-300 decoration-white decoration-dotted decoration-8`}
         >
-          {lightningTime}
+          {currentLightningTime}
         </h1>
-        <p className="text-2xl font-bold">({time})</p>
+        <p className="text-2xl font-bold">({currentNormalTime})</p>
       </div>
     </div>
   )
