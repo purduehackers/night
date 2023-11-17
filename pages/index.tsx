@@ -21,20 +21,20 @@ const Home = () => {
   })
 
   return (
-    <LightningTimeProvider>
-      <div className="flex min-h-screen flex-col bg-gray-900 text-white">
-        <Head>
-          <title>Hack Night</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <div
-          style={{
-            backgroundImage: `url(${songData.image})`,
-            backgroundSize: '125vw',
-            backgroundPosition: '50% 40%'
-          }}
-        >
-          <div className="grid grid-cols-3 grid-gap-0 items-start min-h-screen bg-gray-800/80 backdrop-blur-lg">
+    <div className="flex min-h-screen flex-col bg-gray-900 text-white">
+      <Head>
+        <title>Hack Night</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div
+        style={{
+          backgroundImage: `url(${songData.image})`,
+          backgroundSize: '125vw',
+          backgroundPosition: '50% 40%'
+        }}
+      >
+        <div className="grid grid-cols-3 grid-gap-0 items-start min-h-screen bg-gray-800/80 backdrop-blur-lg">
+          <LightningTimeProvider>
             <NowPlaying songData={songData} />
             <div>
               <Time />
@@ -43,10 +43,10 @@ const Home = () => {
               </DoorbellContext>
             </div>
             <Posts />
-          </div>
+          </LightningTimeProvider>
         </div>
       </div>
-    </LightningTimeProvider>
+    </div>
   )
 }
 

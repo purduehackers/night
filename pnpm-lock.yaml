@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@liveblocks/client':
-    specifier: ^1.0.0
+    specifier: ^1.7.1
     version: 1.7.1
   '@liveblocks/react':
-    specifier: ^1.0.0
+    specifier: ^1.7.1
     version: 1.7.1(react@18.2.0)
   '@purduehackers/time':
-    specifier: ^0.6.7
-    version: 0.6.7(react@18.2.0)
+    specifier: ^0.6.10
+    version: 0.6.10(react@18.2.0)
   airtable:
     specifier: ^0.11.5
     version: 0.11.6
@@ -240,8 +240,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@purduehackers/time@0.6.7(react@18.2.0):
-    resolution: {integrity: sha512-i+U7tusyXV0P2+ZnXGLHV4uVJx+nZHAy6MfzeG0+QVCtISGB6Qni3lYED3FBe4Nar0shOZ11/t7Iwwn5t4EsKQ==}
+  /@purduehackers/time@0.6.10(react@18.2.0):
+    resolution: {integrity: sha512-oiC2wSDOlflQoO17bGNkt+w5+jB5lgmNgp10f8cBLCw7s0OAqy6p50p4h9Hv5zFROe3BBwXeX+T8kVNWXeKYSQ==}
     peerDependencies:
       react: '>=17.0.0'
     peerDependenciesMeta:
@@ -390,7 +390,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001562
-      electron-to-chromium: 1.4.585
+      electron-to-chromium: 1.4.586
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
     dev: true
@@ -462,8 +462,8 @@ packages:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
     dev: true
 
-  /electron-to-chromium@1.4.585:
-    resolution: {integrity: sha512-B4yBlX0azdA3rVMxpYwLQfDpdwOgcnLCkpvSOd68iFmeedo+WYjaBJS3/W58LVD8CB2nf+o7C4K9xz1l09RkWg==}
+  /electron-to-chromium@1.4.586:
+    resolution: {integrity: sha512-qMa+E6yf1fNQbg3G66pHLXeJUP5CCCzNat1VPczOZOqgI2w4u+8y9sQnswMdGs5m4C1rOePq37EVBr/nsPQY7w==}
     dev: true
 
   /escalade@3.1.1:
