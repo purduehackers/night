@@ -23,7 +23,7 @@ const Posts = ({ initialData }: { initialData: Post[] }) => {
           key={i}
           avatar={post.avatar[0].url}
           description={truncate(post.description, 90)}
-          image={post.attachments[0].url}
+          imageUrl={post.attachments[0].url}
           color={Object.values(currentColors)[i]}
         />
       ))}

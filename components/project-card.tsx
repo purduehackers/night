@@ -2,7 +2,7 @@ interface PostData {
   username: string
   avatar: string
   description: string
-  image: string
+  imageUrl: string
   color: string
 }
 
@@ -10,7 +10,7 @@ const ProjectCard = ({
   username,
   avatar,
   description,
-  image,
+  imageUrl,
   color
 }: PostData) => (
   <div
@@ -22,7 +22,7 @@ const ProjectCard = ({
       <h1 className="font-bold">{username}</h1>
     </div>
     <p className="mt-4">{description}</p>
-    <img src={image} className="mt-2 max-h-24 rounded" />
+    <img src={imageUrl} className="mt-2 max-h-24 rounded" />
   </div>
 )
 
