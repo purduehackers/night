@@ -1,9 +1,12 @@
+import Image from 'next/image'
+
 interface PostData {
   username: string
   avatar: string
   description: string
   imageUrl: string
   color: string
+  blurhash?: string
 }
 
 const ProjectCard = ({
@@ -11,7 +14,8 @@ const ProjectCard = ({
   avatar,
   description,
   imageUrl,
-  color
+  color,
+  blurhash
 }: PostData) => (
   <div
     className={`rounded-2xl w-full p-4 text-white mt-4`}
@@ -22,7 +26,17 @@ const ProjectCard = ({
       <h1 className="font-bold">{username}</h1>
     </div>
     <p className="mt-4">{description}</p>
-    <img src={imageUrl} className="mt-2 max-h-24 rounded" />
+    <Image
+      alt={`Image by ${username}`}
+      src={imageUrl}
+      className="mt-2 max-h-24 rounded"
+      placeholder={blurhash ? 'blur' : 'empty'}
+      blurDataURL={blurhash}
+      width={0}
+      height={0}
+      sizes="100vw"
+      style={{ width: 'auto', height: 'auto' }}
+    />
   </div>
 )
 
