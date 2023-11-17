@@ -11,9 +11,8 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      main: '"Space Grotesk", system-ui, Roboto, sans-serif',
-      // sans: '"Inter", sans-serif',s
-      mono: '"Space Mono"'
+      main: 'var(--font-space-grotesk), system-ui, Roboto, sans-serif',
+      mono: 'var(--font-space-mono)'
     },
     extend: {
       colors: {
