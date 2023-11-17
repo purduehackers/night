@@ -25,7 +25,6 @@ const Posts = ({ initialData }: { initialData: Post[] }) => {
           description={truncate(post.description, 90)}
           imageUrl={post.attachments[0].url}
           color={Object.values(currentColors)[i]}
-          blurhash={post.blurhash}
         />
       ))}
     </div>

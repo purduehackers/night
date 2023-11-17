@@ -8,7 +8,6 @@ import { LightningTimeProvider } from '../components/lightning-time-context'
 import { fetchPosts } from '../lib/fetch-posts'
 import { fetchFish } from '../lib/fetch-fish'
 import { InferGetStaticPropsType } from 'next'
-import { getPlaiceholder } from 'plaiceholder'
 
 const Home = ({
   posts,
@@ -61,27 +60,9 @@ export async function getStaticProps() {
   const posts = await fetchPosts()
   const fish = await fetchFish()
 
-  const postsWithBlurhash = await Promise.all(
-    posts.map(async (post) => {
-      try {
-        const buffer = await fetch(post.attachments[0].url).then(async (res) =>
-          Buffer.from(await res.arrayBuffer())
-        )
-        const { base64 } = await getPlaiceholder(buffer)
-        return {
-          ...post,
-          blurhash: base64
-        }
-      } catch (err) {
-        console.error(err)
-        return post
-      }
-    })
-  )
-
   return {
     props: {
-      posts: postsWithBlurhash,
+      posts,
       fish
     }
   }

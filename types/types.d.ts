@@ -6,7 +6,6 @@ interface Post {
   attachments: Attachment[]
   username: string
   avatar: Attachment[]
-  blurhash?: string
 }
 
 interface Fish {
