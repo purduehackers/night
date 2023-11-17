@@ -1,15 +1,14 @@
-import { LightningTime } from '@purduehackers/time'
 import { useLightningTimeClock } from '@purduehackers/time/react'
 import { createContext } from 'react'
 
-const { lightningString, colors } = new LightningTime().convertToLightning(
-  new Date()
-)
-
 export const LightningTimeContext = createContext({
-  currentLightningTime: lightningString,
-  currentNormalTime: '',
-  currentColors: colors
+  currentLightningTime: '0~0~0',
+  currentNormalTime: '12:00 AM',
+  currentColors: {
+    boltColor: '#ffffff',
+    zapColor: '#ffffff',
+    sparkColor: '#ffffff'
+  }
 })
 
 export const LightningTimeProvider = ({ ...props }) => {
