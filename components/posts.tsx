@@ -1,5 +1,4 @@
-import { LightningTime } from '@purduehackers/time'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import useSWR from 'swr'
 import truncate from 'truncate'
 import { Post } from '../types/types'
